@@ -1,0 +1,74 @@
+<head>
+  <title>meteor1</title>
+</head>
+
+<body>
+  
+ 
+  <div class="container">
+    <header>
+      <h1 class="teal">Lista de Nombres</h1>
+      <div class='dropdown-button btn white' >
+      		{{> loginButtons}}
+      </div>
+      
+    </header>
+
+
+  {{#if currentUser}}
+
+
+   <table class="table table-bordered">
+   	 <thead>
+      <tr>
+                <th>Firstname</th>
+      </tr>
+    </thead>
+    <tbody>
+    	{{#each tasks}}
+      <tr>
+        <td>{{> task}}</td>
+      </tr>
+      {{/each}}
+       </tbody>
+  </table>
+  
+  <div>
+    {{#if isInRole 'administrador' 'default-group'}}
+    {{>postSubmit}}
+    {{/if}}   
+  </div>
+
+
+{{/if}}
+  </div>
+
+ 
+</body>
+ 
+<template name="task">
+  <div class="collection">
+  <a class="collection-item">{{nombre}}</a>
+  </div>
+</template>
+
+<template name="postSubmit">
+
+  
+  <form class="main form page">
+    
+    <div class="form-group">
+      <label class="control-label" for="title">Nombre</label>
+      <div class="controls">
+          <input name="title" id="title" type="text" value="" placeholder="Your name" class="form-control"/>
+      </div>
+    </div>
+     
+
+ 
+   
+
+    <input type="submit" class="btn-floating btn-large waves-effect waves-light teal"/>
+  </form>
+
+</template>
