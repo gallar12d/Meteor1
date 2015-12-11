@@ -3,21 +3,35 @@
 </head>
 
 <body>
-  
+
+
  
-  <div class="container">
+  <div>
     <header>
       <h1 class="teal">Lista de Nombres</h1>
       <div class='dropdown-button btn white' >
       		{{> loginButtons}}
-      </div>
-      
+      </div>          
     </header>
 
 
   {{#if currentUser}}
 
 
+
+       <div class="collection-item avatar">
+      <img src="http://graph.facebook.com/{{imagenface.services.facebook.id}}/picture/?type=large" class="circle responsive-img" alt="" >
+      </div>
+      <span class="title">Datos</span>
+      <p>{{imagenface.profile.name}}<br>
+         {{imagenface.services.facebook.email}}
+      </p>
+      
+   
+  
+
+
+  
    <table class="table table-bordered">
    	 <thead>
       <tr>
@@ -28,16 +42,12 @@
     	{{#each tasks}}
       <tr>
         <td>{{> task}}</td>
+
       </tr>
       {{/each}}
        </tbody>
   </table>
   
-  <div>
-    {{#if isInRole 'administrador' 'default-group'}}
-    {{>postSubmit}}
-    {{/if}}   
-  </div>
 
 
 {{/if}}
@@ -70,5 +80,15 @@
 
     <input type="submit" class="btn-floating btn-large waves-effect waves-light teal"/>
   </form>
+
+</template>
+
+
+<template name="imagenface">
+
+  {{imagensita}}
+
+  
+  
 
 </template>

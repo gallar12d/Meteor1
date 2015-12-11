@@ -1,4 +1,6 @@
 Persona = new Mongo.Collection('persona');
+
+
  
 if (Meteor.isClient) {
 
@@ -6,19 +8,21 @@ if (Meteor.isClient) {
 Meteor.subscribe('allUsers');
 Meteor.subscribe('allPersonas');
 
-        function sacaremail(){
-              var userId = Meteor.userId();
-              var usermail = Meteor.users.findOne({_id: userId}).emails[0].address;
-
-               return usermail;
-        }
 
 
           // counter starts at 0
   Template.body.helpers({
     tasks: function () {
       return Persona.find({});
+    },
+
+
+
+    imagenface: function(){
+      return  Meteor.users.findOne({_id: Meteor.userId()});
     }
+
+
   });
 
 
@@ -36,6 +40,17 @@ Meteor.subscribe('allPersonas');
     Router.go('postPage', post);
   }
 });
+
+
+
+
+ 
+
+  
+
+
+
+
 
 
 }

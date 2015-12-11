@@ -19,5 +19,7 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 insecure                # Allow all DB writes from clients (for prototyping)
 accounts-password
 accounts-ui
-materialize:materialize
 alanning:roles
+accounts-facebook
+utilities:avatar
+materialize:materialize
